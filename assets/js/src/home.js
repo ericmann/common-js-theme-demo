@@ -5,8 +5,6 @@
 /**
  * Module dependencies
  */
-var setColor = require( './setcolor' );
+var domModify = require( './dom_modify' );
 
-setColor( 'h2', '#0000ff' );
-
-module.exports = {};
+domModify.setColor( 'h2', '#0000ff' );

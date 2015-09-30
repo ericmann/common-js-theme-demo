@@ -1,5 +1,5 @@
 /**
- * Module for setting the color of specific elements
+ * Module for modifying DOM elements
  */
 
 /**
