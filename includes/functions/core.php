@@ -51,11 +51,19 @@ function i18n() {
 function scripts( $debug = false ) {
 	$min = ( $debug || defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
+	wp_register_script(
+		'common-common',
+		COMMON_TEMPLATE_URL . "/assets/js/common{$min}.js",
+		array(),
+		COMMON_VERSION,
+		true
+	);
+
 	if ( is_home() ) {
 		wp_enqueue_script(
 			'common-home',
 			COMMON_TEMPLATE_URL . "/assets/js/home-bundle{$min}.js",
-			array(),
+			array( 'common-common' ),
 			COMMON_VERSION,
 			true
 		);
@@ -63,7 +71,7 @@ function scripts( $debug = false ) {
 		wp_enqueue_script(
 			'common-single',
 			COMMON_TEMPLATE_URL . "/assets/js/single-bundle{$min}.js",
-			array(),
+			array( 'common-common' ),
 			COMMON_VERSION,
 			true
 		);

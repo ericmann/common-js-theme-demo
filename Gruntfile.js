@@ -16,7 +16,7 @@ module.exports = function( grunt ) {
 					'assets/js/src/home.js',
 					'assets/js/src/single.js'
 				],
-				dest: 'js/common.js',
+				dest: 'assets/js/common.js',
 				options: {
 					plugin: [
 						['factor-bundle', { outputs: [ 'assets/js/home.js', 'assets/js/single.js'] }]
@@ -27,7 +27,9 @@ module.exports = function( grunt ) {
 		uglify: {
 			all: {
 				files: {
-					'assets/js/commonjs-test.min.js': ['assets/js/commonjs-test.js']
+					'assets/js/common.min.js': ['assets/js/common.js'],
+					'assets/js/home.min.js': ['assets/js/home.js'],
+					'assets/js/single.min.js': ['assets/js/single.js']
 				},
 				options: {
 					banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
