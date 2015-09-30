@@ -4,3 +4,6 @@ vendor
 composer.lock
 phpunit.xml
 .idea
+assets/js/*.js
+assets/js/*.min.js
+assets/css/*.min.css
