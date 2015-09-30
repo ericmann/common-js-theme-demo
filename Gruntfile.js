@@ -3,28 +3,26 @@ module.exports = function( grunt ) {
 	// Project configuration
 	grunt.initConfig( {
 		pkg:    grunt.file.readJSON( 'package.json' ),
-		concat: {
-			options: {
-				stripBanners: true,
-				banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
-					' * <%= pkg.homepage %>\n' +
-					' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
-					' * Licensed GPLv2+' +
-					' */\n'
-			},
-			main: {
-				src: [
-					'assets/js/src/commonjs-test.js'
-				],
-				dest: 'assets/js/commonjs-test.js'
-			}
-		},
 		jshint: {
 			all: [
 				'Gruntfile.js',
 				'assets/js/src/**/*.js',
 				'assets/js/test/**/*.js'
 			]
+		},
+		browserify: {
+			home: {
+				src: [
+					'assets/js/src/home.js',
+					'assets/js/src/single.js'
+				],
+				dest: 'js/common.js',
+				options: {
+					plugin: [
+						['factor-bundle', { outputs: [ 'assets/js/home.js', 'assets/js/single.js'] }]
+					]
+				}
+			}
 		},
 		uglify: {
 			all: {
@@ -152,7 +150,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'css', ['cssmin'] );
 	
 
-	grunt.registerTask( 'js', ['jshint', 'concat', 'uglify'] );
+	grunt.registerTask( 'js', ['jshint', 'browserify', 'uglify'] );
 
 	grunt.registerTask( 'default', ['css', 'js'] );
 

@@ -51,13 +51,23 @@ function i18n() {
 function scripts( $debug = false ) {
 	$min = ( $debug || defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-	wp_enqueue_script(
-		'common',
-		COMMON_TEMPLATE_URL . "/assets/js/commonjs-test{$min}.js",
-		array(),
-		COMMON_VERSION,
-		true
-	);
+	if ( is_home() ) {
+		wp_enqueue_script(
+			'common-home',
+			COMMON_TEMPLATE_URL . "/assets/js/home-bundle{$min}.js",
+			array(),
+			COMMON_VERSION,
+			true
+		);
+	} else if ( is_single() ) {
+		wp_enqueue_script(
+			'common-single',
+			COMMON_TEMPLATE_URL . "/assets/js/single-bundle{$min}.js",
+			array(),
+			COMMON_VERSION,
+			true;
+		);
+	}
 }
 
 /**
