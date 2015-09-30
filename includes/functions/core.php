@@ -62,7 +62,7 @@ function scripts( $debug = false ) {
 	if ( is_home() ) {
 		wp_enqueue_script(
 			'common-home',
-			COMMON_TEMPLATE_URL . "/assets/js/home-bundle{$min}.js",
+			COMMON_TEMPLATE_URL . "/assets/js/home{$min}.js",
 			array( 'common-common' ),
 			COMMON_VERSION,
 			true
@@ -70,7 +70,7 @@ function scripts( $debug = false ) {
 	} else if ( is_single() ) {
 		wp_enqueue_script(
 			'common-single',
-			COMMON_TEMPLATE_URL . "/assets/js/single-bundle{$min}.js",
+			COMMON_TEMPLATE_URL . "/assets/js/single{$min}.js",
 			array( 'common-common' ),
 			COMMON_VERSION,
 			true
