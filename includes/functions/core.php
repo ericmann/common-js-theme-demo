@@ -65,7 +65,7 @@ function scripts( $debug = false ) {
 			COMMON_TEMPLATE_URL . "/assets/js/single-bundle{$min}.js",
 			array(),
 			COMMON_VERSION,
-			true;
+			true
 		);
 	}
 }
