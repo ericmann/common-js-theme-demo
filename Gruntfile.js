@@ -10,18 +10,14 @@ module.exports = function( grunt ) {
 				'assets/js/test/**/*.js'
 			]
 		},
-		browserify: {
-			home: {
-				src: [
+		modulize: {
+			all: {
+				modules: [
 					'assets/js/src/home.js',
 					'assets/js/src/single.js'
 				],
-				dest: 'assets/js/common.js',
-				options: {
-					plugin: [
-						['factor-bundle', { outputs: [ 'assets/js/home.js', 'assets/js/single.js'] }]
-					]
-				}
+				output: 'assets/js',
+				bundle: 'assets/js/common.js'
 			}
 		},
 		uglify: {
